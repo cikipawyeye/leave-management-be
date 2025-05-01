@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-test('registration screen can be rendered', function () {
-    $response = $this->get('/register');
-
-    $response->assertStatus(200);
-});
+use function Pest\Laravel\assertDatabaseHas;
+use function Pest\Laravel\postJson;
 
 test('new users can register', function () {
-    $response = $this->post('/register', [
+    $response = postJson('/api/register', [
         'name' => 'Test User',
         'email' => 'test@example.com',
         'password' => 'password',
         'password_confirmation' => 'password',
     ]);
 
-    $this->assertAuthenticated();
-    $response->assertRedirect(route('dashboard', absolute: false));
+    $response->assertNoContent();
+    assertDatabaseHas('users', [
+        'name' => 'Test User',
+        'email' => 'test@example.com',
+    ]);
 });

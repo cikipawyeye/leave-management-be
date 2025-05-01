@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use Illuminate\Support\Facades\Artisan;
+
 /*
 |--------------------------------------------------------------------------
 | Test Case
@@ -15,6 +17,14 @@ declare(strict_types=1);
 
 pest()->extend(Tests\TestCase::class)
     ->use(Illuminate\Foundation\Testing\RefreshDatabase::class)
+    ->beforeEach(function () {
+        Artisan::call('db:seed', [
+            '--class' => 'RoleSeeder',
+        ]);
+        Artisan::call('db:seed', [
+            '--class' => 'PermissionSeeder',
+        ]);
+    })
     ->in('Feature');
 
 /*
