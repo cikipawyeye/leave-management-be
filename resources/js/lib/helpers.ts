@@ -17,7 +17,7 @@ export function formatLocaleDate(input?: string): string {
     if (!input) {
         return '';
     }
-    
+
     const date = new Date(input);
 
     // Konversi ke zona waktu lokal Indonesia

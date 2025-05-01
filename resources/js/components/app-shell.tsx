@@ -12,7 +12,10 @@ interface AppShellProps {
 export function AppShell({ children, variant = 'header' }: Readonly<AppShellProps>) {
     const page = usePage<SharedData>();
     const isOpen = page.props.sidebarOpen;
-    const { permissions, user: { role } } = page.props.auth;
+    const {
+        permissions,
+        user: { role },
+    } = page.props.auth;
 
     const { setRole, setPermissions } = usePermission();
 

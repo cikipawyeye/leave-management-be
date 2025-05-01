@@ -49,7 +49,7 @@ export default function ResetUserPassword({ user }: Readonly<{ user: User }>) {
                         <DialogTitle>Reset User Password</DialogTitle>
                         <DialogDescription>Click save when you're done.</DialogDescription>
                     </DialogHeader>
-                    <div className="grid gap-4 py-4 mb-4">
+                    <div className="mb-4 grid gap-4 py-4">
                         <div className="grid grid-cols-4 items-center gap-4">
                             <Label htmlFor="name" className="text-right">
                                 Password

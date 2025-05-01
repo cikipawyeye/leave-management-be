@@ -63,7 +63,7 @@ export default function Index({ criteria, users }: Readonly<{ criteria: Record<s
                 <div className="flex flex-wrap items-center justify-between gap-4">
                     <div className="flex gap-4">
                         <CreateVerificator />
-                        
+
                         <Input
                             defaultValue={search ?? ''}
                             onChange={(el) => debouncedSetSearch(el.target.value)}

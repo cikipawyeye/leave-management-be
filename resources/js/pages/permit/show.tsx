@@ -65,7 +65,7 @@ export default function Dashboard({ data }: Readonly<{ data: Permit }>) {
                                         <p>{data.created_at ? formatLocaleDate(data.created_at) : '-'}</p>
                                     </div>
                                 </div>
-                                <div className='sm:col-span-2'>
+                                <div className="sm:col-span-2">
                                     <div className="mb-2">
                                         <blockquote className="mt-6 border-l-2 pl-6 italic">
                                             {data.content?.split('\n').map((line, index) => (

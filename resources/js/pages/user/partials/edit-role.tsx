@@ -28,7 +28,7 @@ export default function EditRole({ user }: Readonly<{ user: User }>) {
         if (open) {
             setData({ role: user.role });
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [open]);
 
     return (
