@@ -30,6 +30,10 @@ class PermitReviewController extends ApiController
      */
     public function index(Request $request)
     {
+        $request->validate([
+            'permit' => 'required|integer|exists:permits,id',
+        ]);
+
         $criteria = PermitReviewCriteria::from($request->all());
         $repository = new PermitReviewRepository($criteria);
         $paginate = $request->boolean('paginate', true);
