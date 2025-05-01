@@ -30,6 +30,8 @@ class SavePermitAction extends Action
             'content',
             'title',
             'type',
+            'since',
+            'until',
         )->toArray());
         $this->model->user()->associate($this->user);
 

@@ -31,6 +31,8 @@ class Permit extends Model
         'title',
         'content',
         'state',
+        'since',
+        'until',
     ];
 
     protected static function newFactory(): Factory

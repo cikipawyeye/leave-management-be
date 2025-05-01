@@ -35,6 +35,21 @@ class SavePermitRequest extends FormRequest
             'title' => 'required|string|max:255',
             'content' => 'required|string',
             'type' => 'required|in:sick,leave,other',
+            'since' => ['required', 'date', 'after_or_equal:now'],
+            'until' => ['required', 'date', 'after:since'],
+        ];
+    }
+
+    /**
+     * Get the validation error messages.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'since.after_or_equal' => 'The since date must be a date after or equal to now.',
+            'until.after' => 'The until date must be a date after the since date.',
         ];
     }
 }
