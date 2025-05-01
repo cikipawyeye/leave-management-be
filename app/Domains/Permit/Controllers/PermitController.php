@@ -41,7 +41,7 @@ class PermitController extends ApiController
                 : $request->input('user'),
         ]);
         $repository = new PermitRepository($criteria);
-        $paginate = $request->boolean('paginate');
+        $paginate = $request->boolean('paginate', true);
         $data = ! $paginate
             ? $repository->get()
             : $repository->paginate($request->all());

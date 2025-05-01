@@ -32,7 +32,7 @@ class OrdinaryUserController extends ApiController
     {
         $criteria = UserCriteria::from([...$request->all(), 'role' => RoleEnum::User->value]);
         $repository = new UserRepository($criteria);
-        $paginate = $request->boolean('paginate');
+        $paginate = $request->boolean('paginate', true);
         $data = ! $paginate
             ? $repository->get()
             : $repository->paginate($request->all());

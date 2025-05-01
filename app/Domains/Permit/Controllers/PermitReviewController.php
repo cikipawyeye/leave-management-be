@@ -32,7 +32,7 @@ class PermitReviewController extends ApiController
     {
         $criteria = PermitReviewCriteria::from($request->all());
         $repository = new PermitReviewRepository($criteria);
-        $paginate = $request->boolean('paginate');
+        $paginate = $request->boolean('paginate', true);
         $data = ! $paginate
             ? $repository->get()
             : $repository->paginate($request->all());
